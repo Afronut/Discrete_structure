@@ -1,0 +1,171 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{amsmath}
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines, 
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{CSCI 2824}
+\newcommand\hwnumber{8}                  % <-- homework number
+\newcommand\NetIDa{Coovi Meha}           % <-- NetID of person #1
+\newcommand\NetIDb{SID:107069433}           % <-- NetID of person #2 (Comment this line out for problem sets)
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}                 % <-- Comment this line out for problem sets (make sure you are person #1)
+\chead{\textbf{\Large Homework \hwnumber}}
+\rhead{\course \\ \today}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+
+\begin{document}
+
+\section*{Problem 1}
+Use induction to prove that the following identities hold for all n\(\geq\)1
+\begin{itemize}
+      \item \(\sum_{n=1}^{n} i^2=\frac{n(n+1)(2n+1)}{6}\)\\
+      Let p(n)  be the preposition that \(\sum_{n=1}^{n} i^2=\frac{n(n+1)(2n+1)}{6}\) is true\\ 
+      \textbf{Basic Step:} p(1) is true, because when n=1 \(1^2\)=\(\frac{1(1+1)(2+1)}{6}\)=1 is true\\
+      \textbf{Inductive Hypothesis:} The induction hypothesis is the statement
+      that p(k) is true, that is, \(\sum_{n=1}^{n} i^2=\frac{n(n+1)(2n+1)}{6}\) where k is an arbitrary nonnegative integer
+      greater than 1. We must show that if P (k) is true,then P (k+1), which states that
+      \(\sum_{i=1}^{K} (i+1)^2=\frac{(k+1)(k+2)(2(k+1)+1)}{6}=\frac{(k+1)(k+2)(2k+3)}{6}\)\\
+      \(1^2+2^2+...+k^2+(K+1)^2 \)=\((1^2+2^2+...+k^2)+(K+1)^2 \)\\
+      from our hypothesis we have \\
+      \(\frac{k(k+1)(2k+1)}{6}+(K+1)^2\)\\
+      \((k+1)\frac{k(2k+1)}{6}+(K+1)\)\\
+      \((k+1)\frac{k(2k+1)+6(K+1)}{6}\)\\
+      \(\frac{(k+1)(2k+3)(K+2)}{6}\)
+      \item \(\sum_{n=1}^{n} i^3=\frac{n^2(n+1)^2}{4}\)\\
+      Let p(n)  be the preposition that \(\sum_{n=1}^{n} i^3=\frac{n^2(n+1)^2}{4}\) is true\\
+      \textbf{Basic Step:} p(1) is true, because when n=1 \(1^3=\frac{1^2(1+1)^2}{4}\)=1 is true\\
+      \textbf{Inductive Hypothesis:} The induction hypothesis is the statement
+      that p(k) is true, that is, \(\sum_{n=1}^{n} i^3=\frac{n^2(n+1)^2}{4}\) where k is an arbitrary nonnegative integer
+      greater than 1. We must show that if P (k) is true,then P (k+1), which states that
+      \(\sum_{i=1}^{K} (i+1)^2=\frac{(k+1)^2(k+2)^2}{4}\)\\
+      \(1^3+2^3+...+k^3+(K+1)^3 \)=\((1^3+2^3+...+k^3)+(K+1)^3 \)\\
+      from our hypothesis we have \\
+      \(\frac{k^2(k+1)^2}{4} +(K+1)^3=\frac{(k+1)^2(k+2)^2}{4}\)
+      \item \((1-\frac{1}{4})(1-\frac{1}{9})...(1-\frac{1}{n^2})=\frac{n+1}{2n}\)\\
+      Let p(n)  be the preposition that \((1-\frac{1}{4})(1-\frac{1}{9})...(1-\frac{1}{n^2})=\frac{n+1}{2n}\)\\
+      \textbf{Basic Step:} p(1) is true, because when n=2 \(\frac{3}{4}=\frac{3}{4}\) is true\\
+      \textbf{Inductive Hypothesis:} The induction hypothesis is the statement
+      that p(k) is true, that is \((1-\frac{1}{4})(1-\frac{1}{9})...(1-\frac{1}{n^2})=\frac{n+1}{2n}\),  where k is an arbitrary nonnegative integer
+      greater than 2. We must show that if P (k) is true,then P (k+1), which states that\\
+      \((1-\frac{1}{4})(1-\frac{1}{9})...(1-\frac{k+1}{2k})(1-\frac{1}{(k+1)^2})=\frac{k+2}{2(k+1)}\)
+      from our hypothesis we have \\
+      \((\frac{k+1}{2k})(1-\frac{1}{(k+1)^2})\)=\(\frac{k+2}{2(k+1)}\)
+      \section*{Problem 2}
+      Let the sequence Tn be defined by T1=T2=T3= 1 andTn=Tn−1+Tn−2+Tn−3 for n\(\geq\)4.  Use induction to prove that Tn<\(2^n\)for n\(\geq\)4\\
+      using strong induction\\
+      Let p(n)  be the preposition that Tn<\(2^n\)\\
+      \textbf{Basic Step:} p(4) is true, because when n=4, T4=3<16\\
+      T1=T2=T3\(\leq\)2
+      \textbf{Inductive Hypothesis:} The induction hypothesis is the statement
+      that p(k) is true, that is Tk<\(2^k\),  where k is an arbitrary nonnegative integer
+      greater than 4. We must show that if P (k) is true,then P (k+1), which states that T(k+1)<\(2^{K+1}\)\\
+      T(k+1)=T(k)+T(k-1)+T(k-2)\\=\(2^k+2^{k-1}+2^{k-2}\)\(\leq\)\(2^{k-2+2}+2^{k-2+1}+2^{k-2}\)\\
+      \(\leq\)\(2^k(4+1+2)\)\\
+      \(\leq\)\(2^k\)
+
+      \section*{Problem 3}
+      Consider the function \(f(n) = 50n^3+6n^3log(n^3)-nlog(n^2)\) which represents the complexity of somealgorithm
+      \begin{enumerate}
+            \item Find a tight big-O bound of the form g(n) =\(n^p\) for the given function f with some natural number p.  What are the constants C and k from the big-O definition?\\
+            \(f(n) = 50n^3+6n^3log(n^3)-nlog(n^2)\)\\
+            \(50n^3 \leq n^4\)\\
+            \(6n^3log(n^3)=18n^3log(n)\leq 18n^3*n \leq 18n^4\)\\
+            \(nlog(n^2)\leq 2nlog(n) \leq 2n*n \leq 2n^2 \leq 2n^4\) for n \(\geq\) 1\\ 
+            so f is a \(\mathbb{O}(n^4)\) with C=21 and k=1
+            \item Find a tight big-\(\Omega\) bound of the form g(n)=\(n^p\) for the given function f with some natural number p.  What are the constants C and k from the big-\(\Omega\) definition?\\
+            \(f(n) = 50n^3+6n^3log(n^3)-nlog(n^2)\)\\
+            \(50n^3 \geq n^3\)\\
+            \(6n^3log(n^3)=18n^3log(n)\geq 18n^3 for n \geq e\)\\
+            \(nlog(n^2)\leq 2nlog(n) \geq 0\) for n \(\geq\) 1\\
+            so f is a \(\Omega\)(\(n^3)\) with C=19 and k=6
+            \item  Since \(\Omega\)(\(n^3)\) and \(\mathbb{O}(n^4)\) do not have the same 
+            p, we can not conclude that \(\ominus\)(\(n^p\))
+      \end{enumerate}
+      \section*{Problem 4}
+      Multiply the following matrices:
+      \begin{enumerate}
+            \item \[
+                  \begin{bmatrix}
+                        3 & 4\\
+                        1 & 0\\
+                        2 & 7
+                      \end{bmatrix}*
+                  \begin{bmatrix}
+                  8 & 1 & 2\\
+                  7 & 6 & 5
+                  \end{bmatrix}\\
+                  =\begin{bmatrix}
+                        3*8+7*4 & 3*1+4*6 & 3*2+ 4*5\\
+                        1*8+0*7 & 1*1+0*6 & 1*2+ 0*5\\
+                        2*8+7*7 & 1*2+6*7 & 2*2+ 7*5
+                  \end{bmatrix}
+                  =\begin{bmatrix}
+                        52 & 27 & 24\\
+                        8 & 1 & 2\\
+                        65 & 44 & 39
+                  \end{bmatrix}
+                  \] 
+            \item \[
+                  \begin{bmatrix}
+                        a_{11} & a_{12} & a_{13}\\
+                        a_{21} & a_{22} & a_{23}\\
+                        a_{31} & a_{32} & a_{33}
+                      \end{bmatrix}*
+                      \begin{bmatrix}
+                        b_{11} & b_{12} & b_{13}\\
+                        b_{21} & b_{22} & b_{23}\\
+                        b_{31} & b_{32} & b_{33}
+                      \end{bmatrix}=
+                  \] 
+                  \[
+                  \begin{bmatrix}
+                        a_{11}*b_{11} + a_{12}*b_{21} + a_{13}*b_{31} & a_{21}*b_{11} + a_{22}*b_{21} + a_{23}*b_{31} & a_{31}*b_{11} + a_{32}*b_{21} + a_{33}*b_{31}\\
+                        a_{11}*b_{12} + a_{12}*b_{22} + a_{13}*b_{32} & a_{21}*b_{12} + a_{22}*b_{22} + a_{23}*b_{32} & a_{31}*b_{12} + a_{32}*b_{22} + a_{33}*b_{32}\\
+                        a_{11}*b_{13} + a_{12}*b_{23} + a_{13}*b_{33} & a_{21}*b_{13} + a_{22}*b_{23} + a_{23}*b_{33} & a_{31}*b_{13} + a_{32}*b_{23} + a_{33}*b_{33}\\
+                      \end{bmatrix}
+                  \] 
+      \end{enumerate}
+\end{itemize}
+% Rest of th\
+\end{document}

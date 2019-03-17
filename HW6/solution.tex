@@ -1,0 +1,170 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines, 
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{CSCI 2824}
+\newcommand\hwnumber{6}                  % <-- homework number
+\newcommand\NetIDa{Coovi Meha}           % <-- NetID of person #1
+\newcommand\NetIDb{SID:107069433}           % <-- NetID of person #2 (Comment this line out for problem sets)
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}                 % <-- Comment this line out for problem sets (make sure you are person #1)
+\chead{\textbf{\Large Homework \hwnumber}}
+\rhead{\course \\ \today}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+
+\begin{document}
+
+\section*{Problem 1}
+\begin{itemize}
+  \item Suppose P, Q, and R are non-empty sets. Prove that Px(Q \(\cap\) R) = (PxQ) \(\cap\) (PxR) by showing
+        that each side of this equation must be a subset of the other side, and concluding that the two
+        sides must therefore be equal.\\
+        Px(Q \(\cap\) R) \(\subseteq\) (PxQ) \(\cap\) (PxR)\\
+        let (x,y) \(\in\) Px(Q \(\cap\) R)\\
+        x \(\in\)  P  and y \(\in\) (Q \(\cap\) R)\\
+        x \(\in\)  P  and y \(\in\) R  and Q \(\in\) R\\
+        (x,y) \(\in\)  PxR and  (x,y) \(\in\) P x Q\\
+        (x,y) \(\in\) (PxQ) \(\cap\) (PxR)\\\\
+        (PxQ) \(\cap\) (PxR) \(\subseteq\) Px(Q \(\cap\) R)\\
+        let (x,y) \(\in\)  (PxQ) \(\cap\) (PxR)\\
+        (x,y)\(\in\) PxQ and (x,y)\(\in\) PxR\\
+        x \(\in\) P,  y \(\in\) Q  and x \(\in\) P, y \(\in\) R\\
+        x \(\in\) P and x \(\in\) P, y \(\in\) R\\
+        x \(\in\) P and (x,y) \(\in\) PxR\\
+        (x,y) \(\in\) P \(\cap\) PxR\\
+        Thus  Px(Q \(\cap\) R) = (PxQ) \(\cap\) (PxR)
+  \item Suppose that P, Q, and R are non-empty sets. Prove that Px(Q \(\cap\) R) = (PxQ) \(\cap\) (PxR) by
+        using set builder notation and set identities and definitions.\\
+        let (x,y) \(\in\) Px(Q \(\cap\) R), this is equivalent to\\
+        Px(Q \(\cap\) R) = {(x,y) : x \(\in\) P, (x,y) (Q \(\cap\) R)}\\
+        Px(Q \(\cap\) R) = {(x,y) : x \(\in\) P, x \(\in\) Q and y \(\in\) R}\\
+        Px(Q \(\cap\) R) = {(x,y) : x \(\in\) P, x \(\in\) Q and x \(\in\) P, y \(\in\) R}\\
+        Px(Q \(\cap\) R) = {(x,y) : (x,y) \(\in\) PxQ and (x,y) \(\in\) PxR}\\
+        Px(Q \(\cap\) R) = {(x,y) : (x,y) \(\in\) PxQ and (x,y) \(\cap\) PxR}\\
+        Thus  Px(Q \(\cap\) R) = (PxQ) \(\cap\) (PxR)
+  \item Let U be the set of all integers. Let E be the set of all even integers, D the set of all odd integers,
+        P the set of positive integers, and N the set of all negative integers. Find the following sets.\\
+        i. Set of all even Negative integers
+        ii. Set of all integers (positives and negative integers)
+        iii. Set of all odd integers
+        iv. Set all non integers
+\end{itemize}
+\section*{Problem 2}
+\begin{itemize}
+  \item Give an example of two uncountable sets A and B with a nonempty intersection, such that A − B
+        is\\
+        i. A set with size 0 such as A and B are equal\\
+        ii.  A is set of all real number and B is set of all real number except negative integer. so A-B is
+        set of all positive integers.\\
+        iii.  A is set of all real number, and B is set all positive real number. Thus A-B is set of all
+        real negative number.
+  \item Use the Cantor diagonalization argument to prove that the number of real numbers in the interval
+          [3, 4] is uncountable.\\
+        Suppose that we can list all the number in the [3,4]\\
+        3.100110111\\
+        3.100101011\\
+        3.100011011\\
+        3.01110101\\
+        ....\\
+        ....\\
+        let m=b1b2b3b4 and\\
+        bi={0 if aii different than 1, 1 if aii=0}\\
+        m=0110....\\
+  \item Use a proof by contradiction to show that the set of irrational numbers that lie in the interval
+          [3, 4] is uncountable. (You can use the fact that the set of rational numbers (Q) is countable and
+        the set of reals (R) is uncountable). Show all work.\\
+        Assume that the set all irrational in [3,4] is countable\\
+        We know that the set of all rational in [3,4] is countable and the set of reals (R) is uncountable.\\
+        The subtraction of (Q) and (R) must then be uncountable which is the set
+        of all irrational number in [3,4]. This is a contradiction.
+\end{itemize}
+\section*{Problem 3}
+\begin{itemize}
+  \item Find a closed form for the recurrence relation: \(a_n\) = 2\(a_{n-1}\) - 2, \(a_0\) = -1\\
+        \(a_0\) = -1\\
+        \(a_1\) = -4 =-4 -2 +2 \\
+        \(a_2\) = -10= -8 -4 +2\\
+        \(a_3\) = -22 = -16 -8 +2\\
+        \(a_n\) = -\(2^{n+1}\) - \(2^n\) + 2
+  \item Find a closed form for the recurrence relation: \(a_n\) = (n + 2)\(a_{n-1}\), \(a_0\) = 3\\
+        \(a_0\) = 3\\
+        \(a_1\) = (1 + 2)\(a_{0}\) =9\\
+        \(a_2\) = (2 + 2)\(a_{1}\) =36\\
+        \(a_3\) = (3 + 2)\(a_{2}\) =180\\
+        \(a_4\) = (4 + 2)\(a_{3}\) =1080\\
+        \(a_n\) =\(\frac{3}{2}\) (n+2)!
+  \item  Show that \(a_{n}\) = \(5(-1)^n\) -n + 2 is a solution of the recurrence relation \(a_n\) = \(a_{n-1}\) + 2\(a_{n-2}\) + 2n - 9.\\
+        let \(a_n\) = \(a_{n-1}\) + 2\(a_{n-2}\) + 2n - 9\\
+        if \(a_{n}\) = \(5(-1)^n\) -n + 2, then \(a_{n-1}\) = \(5(-1)^{n-1}\) -n + 3 and \(a_{n-2}\) = \(5(-1)^{n-2}\) -n + 4\\
+        \(a_n\) = \(a_{n-1}\) + 2\(a_{n-2}\) + 2n - 9 become\\
+        \(a_n\) = \(5(-1)^{n-1}\) -n + 3 + 2*\(5(-1)^{n-2}\) -2n + 8 + 2n - 9\\
+        \(a_n\) = \(5(-1)^{n}*(-1)^{-1}\) + 2*\(5(-1)^{n}*(-1)^{-2}\) + 2 - n\\
+        \(a_{n}\) = \(5(-1)^n\) -n + 2\\
+        \(a_{n}\)=\(a_{n}\)
+\end{itemize}
+\section*{Problem 4}
+\begin{itemize}
+  \item Consider the function f : Z x Z \(\rightarrow \) Z where f(m, n) = 2m - n. Is this function onto?\\\\
+  The function is onto because for every 2m-n there is an integers
+  m and n for which 2m-n is integers
+  \item Consider the function f : Z x Z \(\rightarrow \) Z where f(m, n) = \(m^2\) - \(n^2\). Is this function onto?\\\\
+  The function is not onto because  \(m^2\) or \(n^2\) can not be satisfied when 
+  negative that is there is not inter for which \(m^2\) or \(n^2\) are negatives.
+  \item Define the set C = the set of all residents of Colorado. Define in words a function f : C \(\rightarrow \) Z. Is
+  your function one-to-one? Is it onto? Be sure that the f you defined is indeed a function. Be
+  creative and have fun!\\\\
+  let x be number of job an individual has\\
+  let y how many hour an individual works per week\\
+  The function f(x,y)= xy is not onto or one to one because for every total
+  hour of work xy we can not find a resident with x and y satisfied. For example no individual work 1000 hours per week.
+  \item  Again, define the set C = the set of all residents of Colorado. Define in words a function f : C \(\rightarrow \) Z.
+  However this time, make sure that your function is one-to-one. (Make sure to give a different
+  example from part (c)).\\\\
+  Let f(x)= m with m be how much each resident spend at grocery store per month.
+  f is  one-to-one because the amount the individual x spend 
+  in one week will have a unique value in z 
+\end{itemize}
+
+% Rest of the work...
+\end{document}

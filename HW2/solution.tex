@@ -1,0 +1,193 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+} 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines, 
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{CSCI 2824}
+\newcommand\hwnumber{2}                  % <-- homework number
+\newcommand\NetIDa{Coovi Meha}           % <-- NetID of person #1
+\newcommand\NetIDb{SID:107069433}           % <-- NetID of person #2 (Comment this line out for problem sets)
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}                 % <-- Comment this line out for problem sets (make sure you are person #1)
+\chead{\textbf{\Large Homework \hwnumber}}
+\rhead{\course \\ \today}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+
+\begin{document}
+
+\section*{Problem 1}
+Finding the nature of the inhabitant of the island.
+
+A: Aramis is a Knight
+B: Berthand is a Knight
+C: Charleston is a Knight\\
+They say:\\
+Aramis: \({\neg}\) B\\
+Berthand: \({\neg}\) C \({\oplus}\) B\\
+Charleston: A \({\land}\) \({\neg}\) B\\
+lets D:\({\neg}\) B \({\Leftrightarrow}\) \({\neg}\) C \({\oplus}\) B\\
+E: \({\neg}\) B \({\Leftrightarrow}\) A \({\land}\) \({\neg}\) B\\
+G: \({\neg}\) C \({\oplus}\) B \({\Leftrightarrow}\) A \({\land}\) \({\neg}\) B\\\\
+\begin{tabular}{ | m{1cm} | m{1cm}| m{1cm} | m{2em} | m{1cm}| m{4em} | m{5em} | m{1cm}| m{1cm} |  m{1em} | m{2cm}|}
+  \hline
+  \rowcolor{gray}
+  A & B & C & \({\neg}\) B & \({\neg}\) C & \({\neg}\) C \({\oplus}\) B & A \({\land}\) \({\neg}\) B
+  &  D & E & G & D\({\land}\)E\({\land}\)G \\
+  \hline
+  T & T & T & F & F & T & F & F & T & F & F\\
+  \hline
+  T & F & F & T & T & T & T & T & T & T & T\\
+  \hline
+  T & T & F & F & T & F & F & T & T & T & T\\
+  \hline
+  T & F & T & T & F & F & T & F & T & F & F\\
+  \hline
+  F & T & T & F & F & T & F & F & T & F & F\\
+  \hline
+  F & F & F & T & T & T & F & T & F & F & F\\
+  \hline
+  \rowcolor{yellow}
+  F & T & F & F & T & F & F & T & T & T & T\\
+  \hline
+  F & F & T & T & F & F & F & F & F & T & F\\
+  \hline
+\end{tabular}\\
+Bertrand is a Night, Charleston is Knave and Aramis is a Knave
+\section*{Problem 2}
+\begin{enumerate}
+  \item Using the truth table to demonstrate that ((p\({\rightarrow}\)q)\({\land}\)(q\({\rightarrow}\)r)\({\rightarrow}\) (p\({\rightarrow}\)r)
+  is a tautology
+  \begin{tabular}{ | m{1cm} | m{1cm}| m{1cm} | m{1cm} | m{1cm}| m{3cm} | m{1cm} | m{5cm}|}
+    \hline
+    \rowcolor{gray}
+    p & q & r &p\({\rightarrow}\)q& q\({\rightarrow}\)r&(p\({\rightarrow}\)q)\({\land}\)(q\({\rightarrow}\)r)&p\({\rightarrow}\)r& ((p\({\rightarrow}\)q)\({\land}\)(q\({\rightarrow}\)r)\({\rightarrow}\) (p\({\rightarrow}\)r)\\
+    \hline
+    T & T & T & T & T & T & T & T\\
+    \hline
+    T & F & F & F & T & F & F & T\\
+    \hline
+    T & T & F & T & F & F & F & T\\
+    \hline
+    T & F & T & F & T & F & T & T\\
+    \hline
+    F & T & T & T & T & T & T & T\\
+    \hline
+    F & F & F & T & T & T & T & T \\
+    \hline
+    F & T & F & T & F & F & T & T\\
+    \hline
+    F & F & T & T & T & T & T & T\\
+    \hline
+  \end{tabular}\\\\
+  The statement is a tautology.
+  \item Using chain of logical equivalent.\\
+  ((p\({\rightarrow}\)q)\({\land}\)(q\({\rightarrow}\)r))\({\rightarrow}\) (p\({\rightarrow}\)r) \({\equiv}\)
+  \({\neg}\)((\({\neg}\)p\({\lor}\)q)\({\land}\)(\({\neg}\)q\({\lor}\)r))\({\lor}\) (\({\neg}\)p\({\lor}\)r)\\
+  \({\equiv}\)\({\neg}\)((\({\neg}\)p\({\lor}\)q)\({\land}\)(\({\neg}\)q\({\lor}\)r))\({\lor}\) (\({\neg}\)p\({\lor}\)r)\\
+  \({\equiv}\)((p\({\land}\)\({\neg}\)q)\({\land}\)(q\({\land}\)\({\neg}\)r))\({\lor}\) (\({\neg}\)p\({\lor}\)r)\\
+  \({\equiv}\)((q\({\land}\)\({\neg}\)q)\({\land}\)(p\({\land}\)\({\neg}\)r))\({\lor}\) (\({\neg}\)p\({\lor}\)r)\\
+  \({\equiv}\)((p\({\land}\)\({\neg}\)r))\({\lor}\) (\({\neg}\)p\({\lor}\)r)\\
+  \item Showing that (p\({\rightarrow}\)q) \({\rightarrow}\) r and p\({\rightarrow}\)(q \({\rightarrow}\) r) are not logical equivalent.\\
+  \begin{tabular}{ | m{1cm} | m{1cm}| m{1cm} | m{1cm} | m{1cm}| m{3cm} | m{3cm} |}
+    \hline
+    \rowcolor{gray}
+    p & q & r &p\({\rightarrow}\)q& q\({\rightarrow}\)r&(p\({\rightarrow}\)q) \({\rightarrow}\) r & p\({\rightarrow}\)(q \({\rightarrow}\) r)\\
+    \hline
+    T & T & T & T & T & T & T\\
+    \hline
+    T & F & F & F & T & T & T\\
+    \hline
+    T & T & F & T & F & T & F\\
+    \hline
+    T & F & T & F & T & F & T\\
+    \hline
+    F & T & T & T & T & T & T\\
+    \hline
+    F & F & F & T & T & T & T\\
+    \hline
+    F & T & F & T & F & T & T\\
+    \hline
+    F & F & T & T & T & T & T\\
+    \hline
+  \end{tabular}\\\\
+  The last two columns contain contradictory statements, thus the two logical  statements are not equivalent.
+\end{enumerate}
+\section*{Problem 3}
+\begin{enumerate}
+  \item \({\forall}xp(x)\) \({\equiv} P(5) {\land} P(6) {\land} P(7) {\land} P(8)\)
+  \item \({\neg}{\exists}xp(x)\) \({\equiv} {\neg}P(5) {\lor} {\neg}P(6) {\lor} {\neg}P(7) {\lor} {\neg}P(8)\)
+  \item \({\neg}{\forall}xp(x)\)\({\equiv} {\neg}P(5) {\land} {\neg}P(6) {\land} {\neg}P(7) {\land} {\neg}P(8)\)
+\end{enumerate}
+\section*{Problem 4}
+\begin{tabular}{  m{1cm} | m{1cm}}
+  163 & 1\\
+  54 & 0\\
+  18 & 0\\
+  6 & 0\\
+  2 & 2\\
+\end{tabular} 
+163 in base 3 is \((20001)_3\)
+
+\section*{Problem 5}
+\begin{enumerate}
+  \item Translating each of the group’s travel requirements from English into a proposition.
+  \begin{enumerate}
+    \item Shaggy: V \({\lor}\) \({\neg}\) S;
+    \item Velma: P \({\rightarrow}\) \({\neg}\) V
+    \item Daphne: B \({\leftrightarrow}\) (L \({\land}\) P)
+    \item Fred: \({\neg}\) P
+    \item Scooby: \({\exists}xT(x)\) \({\equiv}\) P \({\lor}\) V \({\lor}\) S \({\lor}\) B
+  \end{enumerate}
+  \item Satisfaction of the gangs proposition. Lets Sat be the logical the gangs go on vacation. For Sat to be True:
+  (V \({\lor}\) \({\neg}\) S)  \({\land}\) (P \({\rightarrow}\) \({\neg}\) V) \({\land}\) (B \({\leftrightarrow}\) (L \({\land}\) P)) \({\land}\) (\({\neg}\) P) \({\land}\)
+(P \({\lor}\) V \({\lor}\) S \({\lor}\) B) must be true.
+  \item The team travel whish is possible. If V is true proposition a) will be true no 
+  matter the values of S. For b) to be true, P must be false. The statement
+  c) is true only if B is false no matter the outcome of L. Because P was false, the statement d) must be true.Finally as one of the valuein each
+  is true, statement e) is true.\\
+  -Venice\\
+  -Shanghai\\
+  \item Park W in west Africa.
+\end{enumerate}
+% Rest of the work...
+\end{document}
